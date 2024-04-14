@@ -6,10 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "start": "nodemon app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Kartikdixit2468/my-portfolio"
   },
   "author": "Kartik Dixit",
-  "license": "MIT License"
+  "license": "MIT License",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
 }
