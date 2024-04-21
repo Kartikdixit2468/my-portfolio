@@ -4,5 +4,15 @@
             "source": "/(.*)", 
             "destination": "/"
         } 
+    ],
+    "routes" : [
+        {
+            "src": "/",
+            "dest": "/"
+        },
+        {
+            "src": "/resume-download",
+            "dest": "/resume-download"
+        }
     ]
 }
