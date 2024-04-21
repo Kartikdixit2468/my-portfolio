@@ -2,10 +2,11 @@
   "name": "my-portfolio",
   "version": "1.0.0",
   "description": "This is my portfolio.",
-  "main": "server.js",
+  "main": "src/api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "cross-env-shell ./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
   },
   "repository": {
     "type": "git",
@@ -14,7 +15,9 @@
   "author": "Kartik Dixit",
   "license": "MIT License",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "express": "^4.19.2",
-    "nodemon": "^3.1.0"
+    "netlify-lambda": "^2.0.16",
+    "serverless-http": "^3.2.0"
   }
 }

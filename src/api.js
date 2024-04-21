@@ -1,14 +1,15 @@
 const express = require('express');
 const path = require('path')
-const port = 80;
+const serverless = require('serverless-http')
+// const port = 80;
 
 const app = express();
 
-app.use(express.json());
 app.use(express.static('public'));
 
+const router = express.Router();
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
 
     const options = {
         root: path.join(__dirname)
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/resume-download', (req, res) => {
+router.get('/resume-download', (req, res) => {
 
     const resume_path = 'public/files/Kartik Dixit Resume.pdf';    
     res.download(resume_path, (err) => {
@@ -36,9 +37,11 @@ app.get('/resume-download', (req, res) => {
 
 })
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
-    console.log(`Link to application - http://localhost:${port}/`)
-});
+app.use('/.netlify/functions/api', router)
 
-// module.exports = app;
+// app.listen(port, () => {
+//     console.log(`Server is running on port ${port}`)
+//     console.log(`Link to application - http://localhost:${port}/`)
+// });
+
+module.exports.handler = serverless(app);
