@@ -1,11 +1,11 @@
 const express = require('express');
 const path = require('path')
-const port = 3500;
+// const port = 3500;
 
 const app = express();
 
 app.use(express.json());
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 
 app.get('', (req, res) => {
@@ -36,7 +36,9 @@ app.get('/resume-download', (req, res) => {
 
 })
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
-    console.log(`Link to application - http://localhost:${port}/`)
-});
+// app.listen(port, () => {
+//     console.log(`Server is running on port ${port}`)
+//     console.log(`Link to application - http://localhost:${port}/`)
+// });
+
+module.exports = app;
